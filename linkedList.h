@@ -15,7 +15,7 @@ private:
 
 public:
   DoublyLinkedList() : size(0), head(nullptr), tail(nullptr) {}
-
+  ~DoublyLinkedList();
   void push_back(int value);
   void push_front(int val);
   void insert(int index, int val);

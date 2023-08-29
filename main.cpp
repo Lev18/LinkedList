@@ -13,5 +13,4 @@ int main() {
     l1.insert(2,15);
     l1.printList();
     l2.printReverse();
-    // You can now call methods on the l1 instance
 }

@@ -151,3 +151,15 @@ void DoublyLinkedList::printReverse() {
   }
     std::cout << std::endl;
 }
+
+DoublyLinkedList::~DoublyLinkedList() {
+   DoublyLinkedList::Node*  current = head;
+  while (current != nullptr) {
+        DoublyLinkedList::Node*  current = head;   
+        delete current;
+        current = current->next;
+  }
+  head = nullptr;
+  tail = nullptr;
+  size = 0;
+}

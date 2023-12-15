@@ -50,12 +50,11 @@ void DoublyLinkedList::insert(int index, int val) {
     throw std::invalid_argument("index out of range!:");
     std::exit(1);
   }
-  DoublyLinkedList::Node* newNode = new DoublyLinkedList::Node();
+  DoublyLinkedList::Node* newNode = new DoublyLinkedList::Node(val);
   
   if (size == 0) {
     head = newNode;
     tail = newNode;
-    head->value = val;
     ++size;
     return;
   }
@@ -71,18 +70,15 @@ void DoublyLinkedList::insert(int index, int val) {
     head = newNode;
     head->value = val;
   } else {
-    current->prev->next = newNode;
     newNode->next = current;
     newNode->prev = current->prev;
+    current->prev->next = newNode;
     current->prev = newNode;
   }
   
   if (current == tail) {
     tail = newNode;
-    tail->value = val;
-  } else {
-   newNode->value = val;
-  }
+  } 
   ++size;
 }
 
@@ -122,7 +118,7 @@ int DoublyLinkedList::get(int index) {
   }
   
   if (size == 0) {
-    return;
+    return 0;
   }
   
   int valueAtIndex {};

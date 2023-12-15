@@ -9,12 +9,14 @@ private:
         Node* prev;
         Node* next;
         Node() : value(0), prev(nullptr), next(nullptr) {}
+        Node(int val) : value(val), prev(nullptr), next(nullptr) {}
+
     };
     Node* head;
     Node* tail;
 
 public:
-  DoublyLinkedList() : size(0), head(nullptr), tail(nullptr) {}
+  DoublyLinkedList() : size(0), head (new DoublyLinkedList::Node(0)), tail(nullptr) {}
   ~DoublyLinkedList();
   void push_back(int value);
   void push_front(int val);
